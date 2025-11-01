@@ -120,7 +120,7 @@ def calcular_valor_produto_acrescentando_imposto(
     print(f"""Valor total do produto: $ {valor_produto_dolar}
     Valor total do produto: R$ {valor_produto_reais}
     Valor imposto: R$ {valor_imposto_reais}
-    
+
     Valor total do produto com imposto: {valor_total_produto_reais}""")
 
 
@@ -145,3 +145,85 @@ def calcular_valor_compra_paraguai():
             )
     else:
         print("Valor do produto sem pagar imposto: " + str(valor_produto_reais))
+
+
+# Ex.1 : Criar uma função chamada exercicio_aluno
+# Solicitar o nome (criar função)
+# Solicitar a nota 1 (criar função)
+# Solicitar a nota 2 (criar função)
+# Solicitar a nota 3 (criar função)
+# Calcular média e apresentar
+# Criar um if que verifique se o aluno está ou não aprovado e apresentar
+
+# --------------------------------------------------------------------
+
+
+def solicitar_nome_aluno() -> str:
+    nome_aluno : str = input("Digite o nome do aluno: ")
+    return nome_aluno
+
+
+def solicitar_primeira_nota() -> float:
+    nota1 : float = float(input("Digite a primeira nota do aluno: "))
+    return nota1
+
+
+def solicitar_segunda_nota() -> float:
+    nota2 : float = float(input("Digite a segunda nota do aluno: "))
+    return nota2
+
+
+def solicitar_terceira_nota() -> float:
+    nota3 : float = float(input("Digite a terceira nota do aluno: "))
+    return nota3
+
+
+def calcular_media_aluno(
+    primeira_nota : float,
+    segunda_nota : float,
+    terceira_nota : float,
+) -> float:
+    media_aluno = (primeira_nota + segunda_nota + terceira_nota) / 3
+    return media_aluno
+
+
+def verificar_se_aluno_passou(
+    media : float
+) -> bool :
+    if media >= 7:
+        return True
+    else: 
+        return False
+
+
+def solicitar_dados_aluno():
+    nome : str = solicitar_nome_aluno()
+
+    primeira_nota : float = solicitar_primeira_nota()
+
+    segunda_nota : float = solicitar_segunda_nota()
+
+    terceira_nota : float = solicitar_terceira_nota()
+
+    media : float = calcular_media_aluno(primeira_nota, segunda_nota, terceira_nota)
+
+    status : bool = verificar_se_aluno_passou(media)
+    if status == True:
+        print(f"""Nome do aluno: {nome}
+        Primeira nota: {primeira_nota}
+        Segunda nota: {segunda_nota}
+        Terceira nota: {terceira_nota}
+        Média final: {media}
+
+        O aluno está aprovado!
+        """)
+    else:
+        print(f"""Nome do aluno: {nome}
+        Primeira nota: {primeira_nota}
+        Segunda nota: {segunda_nota}
+        Terceira nota: {terceira_nota}
+        Média final: {media}
+
+        O aluno está reprovado!
+        """)
+

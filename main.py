@@ -12,7 +12,8 @@ def main():
 
     # # Exemplos de funções 
     # funcoes.funcao_executar()
-    funcoes.calcular_valor_compra_paraguai()
+    # funcoes.calcular_valor_compra_paraguai()
+    funcoes.solicitar_dados_aluno()
 
     # # Exemplos de conversões
     # conversoes.converter_str_para_int()
