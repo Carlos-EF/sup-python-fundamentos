@@ -157,6 +157,17 @@ def calcular_valor_compra_paraguai():
 
 # --------------------------------------------------------------------
 
+# Solicitar a idade (criar função)
+# Solicitar o peso (criar função)
+# Solicitar a altura (criar função)
+# Calcular o imc do aluno e apresentar a classificação
+# Apresentar a geração de acordo com a idade
+# Solicitar o cargo (criar função)
+# Apresentar salário de acordo com cargo
+#  Estagiário R$ 850,00
+#  Junior R$ 1800,00
+#  Pleno R$ 4000,00
+#  Senior R$ 6000,00
 
 def solicitar_nome_aluno() -> str:
     nome_aluno : str = input("Digite o nome do aluno: ")
@@ -196,6 +207,46 @@ def verificar_se_aluno_passou(
         return False
 
 
+def solicitar_idade_aluno() -> int:
+    idade_aluno : int = int(input("Digite a idade do aluno: "))
+    return idade_aluno
+
+
+def solicitar_peso_aluno() -> float:
+    peso_aluno : float = float(input("Digite o peso do aluno: ").replace(",", "."))
+    return peso_aluno
+
+
+def solicitar_altura_aluno() -> float:
+    altura_aluno : float = float(input("Digite a altura do aluno: ").replace(",", "."))
+    return altura_aluno
+
+
+def calcular_imc_aluno(
+    peso : float,
+    altura : float,
+) -> float:
+    imc_aluno : float = peso / (altura * 2)
+    return imc_aluno
+
+
+def verificar_status_imc_aluno(
+    imc : float,
+) -> str:
+    if imc < 18.5:
+        status_imc_aluno : str = "Abaixo do peso."
+    elif imc >=18.5 and imc <= 24.9:
+        status_imc_aluno : str = "Normal."
+    elif imc >=25.0 and imc <= 29.9:
+        status_imc_aluno : str = "Sobrepeso."
+    elif imc >=30.0 and imc <= 39.9:
+        status_imc_aluno : str = "Obesidade."
+    else:
+        status_imc_aluno : str = "Obesidade grave."
+
+    return status_imc_aluno
+
+
 def solicitar_dados_aluno():
     nome : str = solicitar_nome_aluno()
 
@@ -207,7 +258,18 @@ def solicitar_dados_aluno():
 
     media : float = calcular_media_aluno(primeira_nota, segunda_nota, terceira_nota)
 
+    idade : int = solicitar_idade_aluno()
+
+    peso : float = solicitar_peso_aluno()
+
+    altura : float = solicitar_altura_aluno()
+
+    imc : float = calcular_imc_aluno(peso, altura)
+
+    status : float = verificar_status_imc_aluno(imc)
+
     status : bool = verificar_se_aluno_passou(media)
+    
     if status == True:
         print(f"""Nome do aluno: {nome}
         Primeira nota: {primeira_nota}
