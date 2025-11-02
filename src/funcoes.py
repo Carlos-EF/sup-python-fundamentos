@@ -146,6 +146,7 @@ def calcular_valor_compra_paraguai():
     else:
         print("Valor do produto sem pagar imposto: " + str(valor_produto_reais))
 
+# --------------------------------------------------------------------------------------------------- #
 
 # Ex.1 : Criar uma função chamada exercicio_aluno
 # Solicitar o nome (criar função)
@@ -155,7 +156,7 @@ def calcular_valor_compra_paraguai():
 # Calcular média e apresentar
 # Criar um if que verifique se o aluno está ou não aprovado e apresentar
 
-# --------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------- #
 
 # Solicitar a idade (criar função)
 # Solicitar o peso (criar função)
@@ -194,7 +195,7 @@ def calcular_media_aluno(
     segunda_nota : float,
     terceira_nota : float,
 ) -> float:
-    media_aluno = (primeira_nota + segunda_nota + terceira_nota) / 3
+    media_aluno : float = (primeira_nota + segunda_nota + terceira_nota) / 3
     return media_aluno
 
 
@@ -247,6 +248,43 @@ def verificar_status_imc_aluno(
     return status_imc_aluno
 
 
+def validar_geracao_aluno(idade: int) -> str :
+    ano_atual : int = 2025
+    ano_nascimento_aluno : int = ano_atual - idade
+    if ano_nascimento_aluno >= 1946 and ano_nascimento_aluno <= 1964:
+        geracao : str = "Geração Baby Boomer"
+    elif ano_nascimento_aluno >= 1965 and ano_nascimento_aluno <= 1980:
+        geracao : str = "Geração X"
+    elif ano_nascimento_aluno >= 1981 and ano_nascimento_aluno <= 1996:
+        geracao : str = "Geração Y (Millennial)"
+    elif ano_nascimento_aluno >= 1997 and ano_nascimento_aluno <= 2012:
+        geracao : str = "Geração Y"
+    elif ano_nascimento_aluno >= 2013 and ano_nascimento_aluno <= 2024:
+        geracao : str = "Geração Alpha"
+    elif ano_nascimento_aluno >= 2025:
+        geracao : str = "Geração Beta"
+    return geracao
+
+
+def solicitar_cargo_aluno() -> str :
+    cargo : str = input("Qual o cargo do aluno? [Estagiário / Junior / Pleno / Senior]: ").lower()
+    while cargo != "estagiário" and cargo != "junior" and cargo != "pleno" and cargo != "senior":
+        cargo : str = input("Digite um cargo dísponível no momento. Cargos => [Estagiario / Junior / Pleno / Senior]: ").lower()     
+    return cargo
+
+
+def validar_salario_aluno_atraves_do_cargo(cargo_aluno: str) -> float :
+    if cargo_aluno == "estagiário":
+        salario : float = 850.00
+    elif cargo_aluno == "junior":
+        salario : float = 1800.00
+    elif cargo_aluno == "pleno":
+        salario : float = 4000.00
+    elif cargo_aluno == "senior":
+        salario : float = 6000.00
+    return salario
+
+
 def solicitar_dados_aluno():
     nome : str = solicitar_nome_aluno()
 
@@ -258,7 +296,11 @@ def solicitar_dados_aluno():
 
     media : float = calcular_media_aluno(primeira_nota, segunda_nota, terceira_nota)
 
+    status_media : bool = verificar_se_aluno_passou(media)
+
     idade : int = solicitar_idade_aluno()
+
+    geracao_aluno : str = validar_geracao_aluno(idade)
 
     peso : float = solicitar_peso_aluno()
 
@@ -266,11 +308,13 @@ def solicitar_dados_aluno():
 
     imc : float = calcular_imc_aluno(peso, altura)
 
-    status : float = verificar_status_imc_aluno(imc)
+    status_imc : float = verificar_status_imc_aluno(imc)
 
-    status : bool = verificar_se_aluno_passou(media)
-    
-    if status == True:
+    cargo_aluno : str = solicitar_cargo_aluno()
+
+    salario_aluno : float = validar_salario_aluno_atraves_do_cargo(cargo_aluno)
+
+    if status_media == True:
         print(f"""Nome do aluno: {nome}
         Primeira nota: {primeira_nota}
         Segunda nota: {segunda_nota}
@@ -278,6 +322,15 @@ def solicitar_dados_aluno():
         Média final: {media}
 
         O aluno está aprovado!
+
+        Dados Adicionais:
+        Idade: {idade}
+        Peso: {peso}
+        Altura: {altura}
+        IMC do aluno: {imc}
+         -> Status IMC do aluno: {status_imc}
+        Cargo: {cargo_aluno}
+         -> Salário do aluno: {salario_aluno}
         """)
     else:
         print(f"""Nome do aluno: {nome}
@@ -287,5 +340,14 @@ def solicitar_dados_aluno():
         Média final: {media}
 
         O aluno está reprovado!
+
+        Dados Adicionais:
+        Idade: {idade}
+        Peso: {peso}
+        Altura: {altura}
+        IMC do aluno: {imc}
+         -> Status IMC do aluno: {status_imc}
+        Cargo: {cargo_aluno}
+         -> Salário do aluno: {salario_aluno}
         """)
 
