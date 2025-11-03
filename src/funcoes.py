@@ -269,7 +269,7 @@ def validar_geracao_aluno(idade: int) -> str :
 def solicitar_cargo_aluno() -> str :
     cargo : str = input("Qual o cargo do aluno? [Estagiário / Junior / Pleno / Senior]: ").lower()
     while cargo != "estagiário" and cargo != "junior" and cargo != "pleno" and cargo != "senior":
-        cargo : str = input("Digite um cargo dísponível no momento. Cargos => [Estagiario / Junior / Pleno / Senior]: ").lower()     
+        cargo : str = input("Digite um cargo disponível no momento. Cargos => [Estagiario / Junior / Pleno / Senior]: ").lower()     
     return cargo
 
 
