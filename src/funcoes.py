@@ -285,6 +285,80 @@ def validar_salario_aluno_atraves_do_cargo(cargo_aluno: str) -> float :
     return salario
 
 
+def mostrar_dados_aluno_aprovado(
+    nome : str,
+    primeira_nota : float,
+    segunda_nota : float,
+    terceira_nota : float,
+    media : float,
+    status_media : str,
+    idade : int,
+    geracao_aluno : str,
+    peso : float,
+    altura : float,
+    imc : float,
+    status_imc : float,
+    cargo_aluno : float,
+    salario_aluno : float,
+):
+     print(f"""
+        Nome do aluno: {nome}
+        Primeira nota: {primeira_nota}
+        Segunda nota: {segunda_nota}
+        Terceira nota: {terceira_nota}
+        Média final: {media}
+
+        O aluno está aprovado!
+
+        Dados Adicionais:
+        Idade: {idade}
+        Geração: {geracao_aluno}
+        Peso: {peso}
+        Altura: {altura}
+        IMC do aluno: {imc}
+         -> Status IMC do aluno: {status_imc}
+        Cargo: {cargo_aluno}
+         -> Salário do aluno: {salario_aluno}
+        """)
+
+
+def mostrar_dados_aluno_reprovado(
+    nome : str,
+    primeira_nota : float,
+    segunda_nota : float,
+    terceira_nota : float,
+    media : float,
+    status_media : str,
+    idade : int,
+    geracao_aluno : str,
+    peso : float,
+    altura : float,
+    imc : float,
+    status_imc : float,
+    cargo_aluno : float,
+    salario_aluno : float,
+):
+    print(f"""
+        Nome do aluno: {nome}
+        Primeira nota: {primeira_nota}
+        Segunda nota: {segunda_nota}
+        Terceira nota: {terceira_nota}
+        Média final: {media}
+
+        O aluno está reprovado!
+
+        Dados Adicionais:
+        Idade: {idade}
+        Geração: {geracao_aluno}
+        Peso: {peso}
+        Altura: {altura}
+        IMC do aluno: {imc}
+         -> Status IMC do aluno: {status_imc}
+        Cargo: {cargo_aluno}
+         -> Salário do aluno: {salario_aluno}
+        """)
+
+
 def solicitar_dados_aluno():
     nome : str = solicitar_nome_aluno()
 
@@ -315,39 +389,6 @@ def solicitar_dados_aluno():
     salario_aluno : float = validar_salario_aluno_atraves_do_cargo(cargo_aluno)
 
     if status_media == True:
-        print(f"""Nome do aluno: {nome}
-        Primeira nota: {primeira_nota}
-        Segunda nota: {segunda_nota}
-        Terceira nota: {terceira_nota}
-        Média final: {media}
-
-        O aluno está aprovado!
-
-        Dados Adicionais:
-        Idade: {idade}
-        Peso: {peso}
-        Altura: {altura}
-        IMC do aluno: {imc}
-         -> Status IMC do aluno: {status_imc}
-        Cargo: {cargo_aluno}
-         -> Salário do aluno: {salario_aluno}
-        """)
+        mostrar_dados_aluno_aprovado(nome, primeira_nota, segunda_nota, terceira_nota, media, status_media, idade, geracao_aluno, peso, altura, imc, status_imc, cargo_aluno, salario_aluno)
     else:
-        print(f"""Nome do aluno: {nome}
-        Primeira nota: {primeira_nota}
-        Segunda nota: {segunda_nota}
-        Terceira nota: {terceira_nota}
-        Média final: {media}
-
-        O aluno está reprovado!
-
-        Dados Adicionais:
-        Idade: {idade}
-        Peso: {peso}
-        Altura: {altura}
-        IMC do aluno: {imc}
-         -> Status IMC do aluno: {status_imc}
-        Cargo: {cargo_aluno}
-         -> Salário do aluno: {salario_aluno}
-        """)
-
+        mostrar_dados_aluno_reprovado(nome, primeira_nota, segunda_nota, terceira_nota, media, status_media, idade, geracao_aluno, peso, altura, imc, status_imc, cargo_aluno, salario_aluno)
