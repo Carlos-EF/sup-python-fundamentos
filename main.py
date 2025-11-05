@@ -2,6 +2,7 @@ from src import variaveis
 from src import funcoes
 from src import conversoes
 from src import input_usuario
+from src import exercicios_variaveis
 from src.inputs import exemplo_questionary
 
 
@@ -26,7 +27,10 @@ def main():
     # input_usuario.solicitar_string()
     # input_usuario.solicitar_float()
     # input_usuario.solicitar_int()
-    exemplo_questionary.exemplos()
+    # exemplo_questionary.exemplos()
+
+    # Exercícios
+    exercicios_variaveis.exercicios_dados_produto()
 
 if __name__ == "__main__":
     main() # executar uma função chamada de main(principal)
