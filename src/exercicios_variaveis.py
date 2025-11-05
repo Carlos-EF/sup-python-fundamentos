@@ -14,32 +14,36 @@ def exercicios_dados_produto():
 
     valor_final_produto : float = preco_produto * quantidade_produto
 
-    desconto_produto : float = 0.00
+    valor_desconto_produto = 0
 
     if categoria_produto == "Esportes":
-        desconto_produto = 10.00
-        valor_final_produto_com_desconto = valor_final_produto - desconto_produto
+        desconto = "10%"
+        valor_desconto_produto = 1.1
     elif categoria_produto == "Roupas Esportivas":
-        desconto_produto = 15.00
-        valor_final_produto_com_desconto = valor_final_produto - desconto_produto
+        desconto = "15%"
+        valor_desconto_produto = 1.15
     elif categoria_produto == "Calçados":
-        desconto_produto = 20.00
-        valor_final_produto_com_desconto = valor_final_produto - desconto_produto
+        desconto = "20%"
+        valor_desconto_produto = 1.2
     elif categoria_produto == "Acessórios":
-        desconto_produto = 12.00
-        valor_final_produto_com_desconto = valor_final_produto - desconto_produto
+        desconto = "12%"
+        valor_desconto_produto = 1.12
     elif categoria_produto == "Equipamentos":
-        desconto_produto = 8.00
-        valor_final_produto_com_desconto = valor_final_produto - desconto_produto
+        desconto = "8%"
+        valor_desconto_produto = 1.08
     elif categoria_produto == "Suplementos e Nutrição":
-        desconto_produto = 5.00
-        valor_final_produto_com_desconto = valor_final_produto - desconto_produto
+        desconto = "5%"
+        valor_desconto_produto = 1.05
     elif categoria_produto == "Marcas":
-        desconto_produto = 7.00
-        valor_final_produto_com_desconto = valor_final_produto - desconto_produto
+        desconto = "7%"
+        valor_desconto_produto = 1.07
     elif categoria_produto == "Ofertas e Categorias Especiais":
-        desconto_produto = 25.00
-        valor_final_produto_com_desconto = valor_final_produto - desconto_produto
+        desconto = "25%"
+        valor_desconto_produto = 1.25
+
+    valor_final_produto_com_desconto = valor_final_produto / valor_desconto_produto
+
+    valor_do_desconto = valor_final_produto - valor_final_produto_com_desconto
 
     print(f"""
     Dados do pedido:
@@ -51,6 +55,7 @@ def exercicios_dados_produto():
      Valor da compra: R$ {valor_final_produto}
       _____________________________________
   
-     Valor do desconto: R$ {desconto_produto}
+     Porcentual do desconto: R$ {desconto}
+     Valor do desconto: R$ {valor_do_desconto}
      Valor final da compra: R$ {valor_final_produto_com_desconto}
  """)
