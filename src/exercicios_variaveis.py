@@ -1,8 +1,12 @@
 from questionary import text, select, confirm
 import datetime
+import os
 
 
 def exercicios_dados_produto():
+
+    pedido_produto = ""
+
     nome_produto : str =  text("Digite o nome do produto").ask()
 
     categorias = ["Esportes", "Roupas Esportivas", "Calçados", "Acessórios", "Equipamentos", "Suplementos e Nutrição", "Marcas", "Ofertas e Categorias Especiais"]
@@ -146,7 +150,7 @@ def exercicios_dados_produto():
     if dia_atual != dia_vencimento and mes_atual == mes_vencimento:
         valor_final_produto_com_desconto = valor_final_produto_com_desconto - 20
         
-        print(f"""
+        pedido_produto = f"""
         🧾 RESUMO DO PEDIDO
         ------------------------------------
         Produto: {nome_produto}
@@ -156,33 +160,51 @@ def exercicios_dados_produto():
         Total Bruto: R$ {valor_final_produto}
         Desconto Categoria ({desconto}): R$ {valor_do_desconto}
         Desconto Cupom: R$ {valor_do_desconto_cupom}
-        Desconto Extra: R$ {valor_desconto_produto}
         Frete: R$ {valor_frete}
         ------------------------------------
-        💰 Total a Pagar: R$ {valor_final_produto_com_desconto}
-        📅 Vencimento: {dia_vencimento}/{mes_vencimento}/{ano_vencimento}
-        📦 Região: {regiao_entrega}
+        Total a Pagar: R$ {valor_final_produto_com_desconto}
+        Vencimento: {dia_vencimento}/{mes_vencimento}/{ano_vencimento}
+        Região: {regiao_entrega}
         ------------------------------------
-        Obrigado por comprar conosco! 😄
-        """)
+        Obrigado por comprar conosco! 
+        """
+
+        print(pedido_produto)
         return print
 
-    print(f"""
+    pedido_produto = f"""
     🧾 RESUMO DO PEDIDO
     ------------------------------------
     Produto: {nome_produto}
     Categoria: {categoria_produto}
     Quantidade: {quantidade_produto}
-    Preço Unitário: R$ {preco_produto}
-    Total Bruto: R$ {valor_final_produto}
-    Desconto Categoria ({desconto}): R$ {valor_do_desconto}
+    Preço Unitário: R$ {preco_produto:.2f}
+    Total Bruto: R$ {valor_final_produto:.2f}
+    Desconto Categoria ({desconto}): R$ {valor_do_desconto:.2f}
     Desconto Cupom: R$ {valor_do_desconto_cupom}
-    Desconto Extra: R$ {valor_desconto_produto}
     Frete: R$ {valor_frete}
     ------------------------------------
-    💰 Total a Pagar: R$ {valor_final_produto_com_desconto}
-    📅 Vencimento: {dia_vencimento}/{mes_vencimento}/{ano_vencimento}
-    📦 Região: {regiao_entrega}
+    Total a Pagar: R$ {valor_final_produto_com_desconto:.2f}
+    Vencimento: {dia_vencimento}/{mes_vencimento}/{ano_vencimento}
+    Região: {regiao_entrega}
     ------------------------------------
-    Obrigado por comprar conosco! 😄
- """)
+    Obrigado por comprar conosco! 
+    """
+
+    print(pedido_produto)
+
+    gostaria_salvar_pedido_txt = confirm("Gostaria de salvar o pedido?").ask()
+
+    if gostaria_salvar_pedido_txt == True:
+        caminho_desktop = os.path.join(os.path.expanduser("~"), "Desktop")
+
+        nome_arquivo = "resumo_pedido.txt"
+
+        caminho_desktop_com_arquivo = os.path.join(caminho_desktop, nome_arquivo)
+
+        with open(caminho_desktop_com_arquivo, "w", encoding="utf-8") as resumo:
+            resumo.write(pedido_produto)
+
+        print("Pedido salvo com sucesso no seu Desktop! Obrigado por usar nosso sistema!")
+    else:
+        print("O pedido não foi salvo. Obrigado por usar o nosso sistema!")
