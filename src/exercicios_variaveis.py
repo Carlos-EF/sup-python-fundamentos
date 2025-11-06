@@ -17,19 +17,40 @@ def exercicios_dados_produto():
 
     mes_vencimento = data_vencimento_formatada.split("-")[1]
 
+    ano_vencimento = data_vencimento_formatada.split("-")[2]
+
     data_atual = datetime.datetime.now().strftime('%d-%m-%Y')
 
     dia_atual = data_atual.split("-")[0]
 
     mes_atual = data_atual.split("-")[1]
 
-    if data_vencimento_formatada < data_atual:
+    ano_atual = data_atual.split("-")[2]
+
+    if mes_vencimento < mes_atual or ano_vencimento < ano_atual:
         print(f"""🛑Produto vencido! Compra não permitida.""")
         return print
 
     quantidade_produto : int = int(text("DIgite a quantidade que você deseja do produto").ask())
 
     preco_produto : float = float(text("DIgite o preço do produto").ask().replace("," , "."))
+
+    regioes = ["Sul", "Suldeste", "Centro-Oeste", "Norte", "Nordeste"]
+
+    regiao_entrega : str = select("Selecione a região para a entrega", choices=regioes).ask()
+
+    valor_frete : float = 0
+
+    if regiao_entrega == "Sul":
+        valor_frete = 25.00
+    elif regiao_entrega == "Suldeste":
+        valor_frete = 35.00
+    elif regiao_entrega == "Centro-Oeste":
+        valor_frete = 45.00
+    elif regiao_entrega == "Norte":
+        valor_frete = 55.00
+    elif regiao_entrega == "Nordeste":
+        valor_frete = 50.00
 
     valor_final_produto : float = preco_produto * quantidade_produto
 
@@ -89,14 +110,22 @@ def exercicios_dados_produto():
 
     valor_final_produto_com_desconto = valor_final_produto - valor_do_desconto
 
+    if valor_final_produto_com_desconto > 500.00:
+        valor_frete = 0
+
+    valor_final_produto_com_desconto = valor_final_produto_com_desconto + valor_frete
+
     if dia_atual != dia_vencimento and mes_atual == mes_vencimento:
         valor_final_produto_com_desconto = valor_final_produto_com_desconto - 20
         print(f"""
         Dados do pedido:
         -> Produto = {nome_produto}
         -> Categoria do produto = {categoria_produto}
+        -> Data de Vencimento = {data_vencimento_formatada}
         -> Quantidade = {quantidade_produto}
         -> Preço = R$ {preco_produto}
+        -> Região para entrega: {regiao_entrega}
+        -> Frete: {valor_frete}
 
         Valor da compra: R$ {valor_final_produto}
         _____________________________________
@@ -114,6 +143,8 @@ def exercicios_dados_produto():
      -> Categoria do produto = {categoria_produto}
      -> Quantidade = {quantidade_produto}
      -> Preço = R$ {preco_produto}
+     -> Região para entrega: {regiao_entrega}
+     -> Frete: {valor_frete}
 
      Valor da compra: R$ {valor_final_produto}
       _____________________________________
