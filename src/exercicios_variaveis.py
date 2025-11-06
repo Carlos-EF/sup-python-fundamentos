@@ -145,43 +145,44 @@ def exercicios_dados_produto():
 
     if dia_atual != dia_vencimento and mes_atual == mes_vencimento:
         valor_final_produto_com_desconto = valor_final_produto_com_desconto - 20
+        
         print(f"""
-        Dados do pedido:
-        -> Produto = {nome_produto}
-        -> Categoria do produto = {categoria_produto}
-        -> Data de Vencimento = {data_vencimento_formatada}
-        -> Quantidade = {quantidade_produto}
-        -> Preço = R$ {preco_produto}
-        -> Cupom? = {cupom}
-        -> Valor do desconto de cupom = {valor_do_desconto_cupom}
-        -> Região para entrega: {regiao_entrega}
-        -> Frete: {valor_frete}
-
-        Valor da compra: R$ {valor_final_produto}
-        _____________________________________
-  
-        Porcentual do desconto: R$ {desconto}
-        Valor do desconto: R$ {valor_do_desconto}
-        Valor de desconto extra: R$ 20,00
-        Valor final da compra: R$ {valor_final_produto_com_desconto}
+        🧾 RESUMO DO PEDIDO
+        ------------------------------------
+        Produto: {nome_produto}
+        Categoria: {categoria_produto}
+        Quantidade: {quantidade_produto}
+        Preço Unitário: R$ {preco_produto}
+        Total Bruto: R$ {valor_final_produto}
+        Desconto Categoria ({desconto}): R$ {valor_do_desconto}
+        Desconto Cupom: R$ {valor_do_desconto_cupom}
+        Desconto Extra: R$ {valor_desconto_produto}
+        Frete: R$ {valor_frete}
+        ------------------------------------
+        💰 Total a Pagar: R$ {valor_final_produto_com_desconto}
+        📅 Vencimento: {dia_vencimento}/{mes_vencimento}/{ano_vencimento}
+        📦 Região: {regiao_entrega}
+        ------------------------------------
+        Obrigado por comprar conosco! 😄
         """)
         return print
 
     print(f"""
-    Dados do pedido:
-     -> Produto = {nome_produto}
-     -> Categoria do produto = {categoria_produto}
-     -> Quantidade = {quantidade_produto}
-     -> Preço = R$ {preco_produto}
-     -> Cupom? = {cupom}
-     -> Valor do desconto de cupom = {valor_do_desconto_cupom}
-     -> Região para entrega: {regiao_entrega}
-     -> Frete: {valor_frete}
-
-     Valor da compra: R$ {valor_final_produto}
-      _____________________________________
-  
-     Porcentual do desconto: R$ {desconto}
-     Valor do desconto: R$ {valor_do_desconto}
-     Valor final da compra: R$ {valor_final_produto_com_desconto}
+    🧾 RESUMO DO PEDIDO
+    ------------------------------------
+    Produto: {nome_produto}
+    Categoria: {categoria_produto}
+    Quantidade: {quantidade_produto}
+    Preço Unitário: R$ {preco_produto}
+    Total Bruto: R$ {valor_final_produto}
+    Desconto Categoria ({desconto}): R$ {valor_do_desconto}
+    Desconto Cupom: R$ {valor_do_desconto_cupom}
+    Desconto Extra: R$ {valor_desconto_produto}
+    Frete: R$ {valor_frete}
+    ------------------------------------
+    💰 Total a Pagar: R$ {valor_final_produto_com_desconto}
+    📅 Vencimento: {dia_vencimento}/{mes_vencimento}/{ano_vencimento}
+    📦 Região: {regiao_entrega}
+    ------------------------------------
+    Obrigado por comprar conosco! 😄
  """)
