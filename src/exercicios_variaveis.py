@@ -1,4 +1,4 @@
-from questionary import text, select
+from questionary import text, select, confirm
 import datetime
 
 
@@ -38,8 +38,6 @@ def exercicios_dados_produto():
     regioes = ["Sul", "Suldeste", "Centro-Oeste", "Norte", "Nordeste"]
 
     regiao_entrega : str = select("Selecione a região para a entrega", choices=regioes).ask()
-
-    valor_frete : float = 0
 
     if regiao_entrega == "Sul":
         valor_frete = 25.00
@@ -105,6 +103,29 @@ def exercicios_dados_produto():
             desconto = f"25% + 70% (vencimento data atual)"
             valor_desconto_produto = 1.95
 
+    if cupom_desconto == True:
+        digitar_cupom_desconto = text("DIgite o cupom de desconto").ask()
+
+        if digitar_cupom_desconto == "SUPER10":
+            cupom = "10%"
+            desconto_cupom = 1.1
+        elif digitar_cupom_desconto == "FRETEGRATIS":
+            cupom = "Frete Grátis"
+            valor_frete = 0
+        elif digitar_cupom_desconto == "PRIME20":
+            cupom = "20%"
+            desconto_cupom = 1.2
+        elif digitar_cupom_desconto == "CLIENTEVIP":
+            cupom = "25%"
+            desconto_cupom = 1.25
+        else:
+            cupom = "Sem cupom preenchido."
+            desconto_cupom = 0
+
+    if desconto_cupom != 0:
+        valor_do_desconto_cupom = (valor_final_produto * desconto_cupom) - valor_final_produto
+
+        valor_final_produto = valor_final_produto / desconto_cupom
 
     valor_do_desconto =  (valor_final_produto * valor_desconto_produto) - valor_final_produto
 
@@ -115,6 +136,9 @@ def exercicios_dados_produto():
 
     valor_final_produto_com_desconto = valor_final_produto_com_desconto + valor_frete
 
+    cupom_desconto = confirm("Você possui cupom de desconto?").ask()
+
+
     if dia_atual != dia_vencimento and mes_atual == mes_vencimento:
         valor_final_produto_com_desconto = valor_final_produto_com_desconto - 20
         print(f"""
@@ -124,6 +148,7 @@ def exercicios_dados_produto():
         -> Data de Vencimento = {data_vencimento_formatada}
         -> Quantidade = {quantidade_produto}
         -> Preço = R$ {preco_produto}
+        -> Cupom? = {cupom}
         -> Região para entrega: {regiao_entrega}
         -> Frete: {valor_frete}
 
@@ -143,6 +168,7 @@ def exercicios_dados_produto():
      -> Categoria do produto = {categoria_produto}
      -> Quantidade = {quantidade_produto}
      -> Preço = R$ {preco_produto}
+     -> Cupom? = {cupom}
      -> Região para entrega: {regiao_entrega}
      -> Frete: {valor_frete}
 
