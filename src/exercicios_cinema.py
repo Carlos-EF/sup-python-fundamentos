@@ -41,18 +41,14 @@ def exercicio_dados_ingresso() :
     dia_sessao : str = select("Qual o dia da sessão?", choices=dias_semana).ask()
 
     data_sessao : str = text("Digite a data da sessão no formato: dd-mm-aaaa").ask()
+   
+    data_sessao_formatada = datetime.datetime.strptime(data_sessao, '%d-%m-%Y').date().strftime('%d-%m-%Y')
 
-    horario_sessao : str = text("Digite o horário da sessão no formato: hh:mm:ss").ask()
+    dia = data_sessao_formatada.split("-")[0]
 
-    horas = horario_sessao.split(":")[0]
+    mes = data_sessao_formatada.split("-")[1]
 
-    minutos = horario_sessao.split(":")[1]
-
-    dia = data_sessao.split("-")[0]
-
-    mes = data_sessao.split("-")[1]
-
-    ano = data_sessao.split("-")[2]
+    ano = data_sessao_formatada.split("-")[2]
 
     data_atual = datetime.datetime.now().date().strftime('%d-%m-%Y')
 
@@ -61,6 +57,16 @@ def exercicio_dados_ingresso() :
     mes_atual = data_atual.split("-")[1]
 
     ano_atual = data_atual.split("-")[2]
+
+    if dia < dia_atual or mes < mes_atual or ano < ano_atual:
+        print(f"""🛑Sessão inválida! Compra não permitida.""")
+        return print
+
+    horario_sessao : str = text("Digite o horário da sessão no formato: hh:mm:ss").ask()
+
+    horas = horario_sessao.split(":")[0]
+
+    minutos = horario_sessao.split(":")[1]
 
     if dia_sessao == "Qua":
         promo_ingresso_dia = "Quarta do Cinema"
