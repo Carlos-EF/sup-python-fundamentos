@@ -9,6 +9,14 @@ def exercicio_dados_ingresso() :
 
     quantidade_ingresso : int = int(text("Digite a quantidade de ingressos").ask())
 
+    formatos_sessao = ["2D", "3D", "IMAX"]
+
+    formato_sessao : str = select("Qual o formato da sessão?", choices=formatos_sessao).ask()
+
+    dias_semana = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"]
+
+    dia_sessao : str = select("Qual o dia da sessão?", choices=dias_semana).ask()
+
     preco_ingresso = 0
 
     if tipo_ingresso == "Meia":
@@ -24,6 +32,8 @@ def exercicio_dados_ingresso() :
     -> Quantidade de ingressos: {quantidade_ingresso}
     -> Tipo do(s) Ingresso(s): {tipo_ingresso}
     -> Preço Base do(s) Ingresso(s): R$ {preco_ingresso}
+    -> Formato da Sessão: {formato_sessao}
+    -> Dia da Sessão: {dia_sessao}
     
     --------------------------------------------------
     
