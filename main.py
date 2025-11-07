@@ -5,6 +5,8 @@ from src import input_usuario
 from src import exercicios_variaveis
 from src.inputs import exemplo_questionary
 from src import exercicios_cinema
+from src.dicionarios import exemplo_dicionario_basico
+from src.dicionarios import exemplo_dicionario_aluno
 
 
 def main():
@@ -33,7 +35,11 @@ def main():
     # Exercícios
     # exercicios_variaveis.exercicios_dados_produto()
 
-    exercicios_cinema.exercicio_dados_ingresso()
+    # exercicios_cinema.exercicio_dados_ingresso()
+
+    # exemplo_dicionario_basico()
+
+    exemplo_dicionario_aluno()
 
 if __name__ == "__main__":
     main() # executar uma função chamada de main(principal)
