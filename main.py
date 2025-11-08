@@ -7,6 +7,7 @@ from src.inputs import exemplo_questionary
 from src import exercicios_cinema
 from src.dicionarios import exemplo_dicionario_basico
 from src.dicionarios import exemplo_dicionario_aluno
+from src.listas import exemplo_lista_basica, exemplo_solicitar_dados_usuario, exemplo_solicitar_dados_usuario_otimizado
 
 
 def main():
@@ -39,7 +40,13 @@ def main():
 
     # exemplo_dicionario_basico()
 
-    exemplo_dicionario_aluno()
+    # exemplo_dicionario_aluno()
+
+    # exemplo_lista_basica()
+
+    # exemplo_solicitar_dados_usuario()
+
+    exemplo_solicitar_dados_usuario_otimizado()
 
 if __name__ == "__main__":
     main() # executar uma função chamada de main(principal)
