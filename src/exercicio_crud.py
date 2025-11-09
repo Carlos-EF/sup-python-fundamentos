@@ -22,12 +22,17 @@ def __mostrar_sistema_funcionarios():
     escolha = ""
 
     while escolha != "Sair":
-        escolha = select("Selecione a função desejada:", choices=["Listar", "Cadastrar", "Editar", "Sair"]).ask()
+        escolha = select("Selecione a função desejada:", choices=["Listar", "Cadastrar", "Editar", "Apagar", "Sair"]).ask()
 
         if escolha == "Cadastrar":
             __cadastrar_funcionario()
         elif escolha == "Listar":
             __listar_funcionarios()
+        elif escolha == "Editar":
+            __editar_funcionarios()
+        elif escolha == "Apagar":
+            __apagar_funcionarios()
+
 
 
 def __listar_funcionarios():
@@ -103,3 +108,64 @@ def __cadastrar_funcionario():
         print("Funcionário cadastrado com sucesso!")
     else: 
         print(f"Ocorreu um erro ao tentar cadastrar o funcionário. Erro: {status}")
+
+
+def __editar_funcionarios():
+    __listar_funcionarios()
+
+    id = text("Digite o ID do funcionário que deseja editar:").ask()
+
+    nome_funcionario = text("Digite o nome do funcionario:").ask().strip()
+
+    cargo_funcionario = text("Digite o cargo do funcionario:").ask().strip()
+
+    salario_funcionario = float(text("Digite o salário do funcionario:").ask().replace(",", "."))
+
+    departamento_funcionario = text("Digite o departamento do funcionario:").ask().strip()
+
+    telefone_funcionario = text("Digite o telefone do funcionario:").ask()
+
+    funcionario: Dict[str, Union[str, float]] = {
+        "nome": nome_funcionario,
+        "cargo": cargo_funcionario,
+        "salario": salario_funcionario,
+        "departamento": departamento_funcionario,
+        "telefone": telefone_funcionario,
+    }
+
+    header = {"Content-type": "application/json"}
+
+    payload = funcionario
+
+    url = f"https://api.franciscosensaulas.com/api/v1/trabalho/funcionarios-detalhes/{id}"
+
+    response = requests.put(url, json=payload, headers=header)
+
+    status = response.status_code
+
+    if status == 204:
+        print("Funcionário editado com sucesso!")
+    elif status == 404:
+        print("Funcionário não encontrado.")
+    else:
+        print(f"Ocorreu um erro ao tentar editar o funcionário. Erro: {status}")
+
+
+def __apagar_funcionarios():
+    __listar_funcionarios()
+
+    id = text("Digite o id do funcionário que deseja apagar:").ask()
+
+    url = f"https://api.franciscosensaulas.com/api/v1/trabalho/funcionarios-detalhes/{id}"
+    
+    response = requests.delete(url)
+
+    status = response.status_code
+
+    if status == 204:
+        print("Funcionário deletado com sucesso!")
+    elif status == 404:
+        print("Funcionário não encontrado.")
+    else:
+        print(f"Ocorreu um erro ao tentar apagar o funcionário. Erro: {status}")
+
