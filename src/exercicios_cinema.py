@@ -64,20 +64,20 @@ def exercicio_dados_ingresso() :
 
     horario_sessao : str = text("Digite o horário da sessão no formato: hh:mm:ss").ask()
 
-    horario_sessao_formatado = datetime.datetime.strptime(horario_sessao_formatado, "%X")
+    horario_sessao_formatado = datetime.datetime.strptime(horario_sessao, "%X")
+
+    horario_atual = datetime.datetime.now().time().strftime("%X")
 
     horas = horario_sessao.split(":")[0]
 
     minutos = horario_sessao.split(":")[1]
 
-    horario_atual = datetime.datetime.now().time().strftime("%X")
-
     horas_atual = horario_atual.split(":")[0]
 
     minutos_atual = horario_atual.split(":")[1]
 
-    if dia_sessao == dia_atual:
-        if horario_sessao < horario_atual:
+    if data_sessao_formatada == data_atual:
+        if horas < horas_atual and minutos < minutos_atual:
             print(f"""🛑Sessão inválida! Compra não permitida.""")
             return print
 
