@@ -2,7 +2,7 @@ import requests
 from questionary import select, text
 from rich.console import Console
 from rich.table import Table
-from typing import Dict, Union
+from typing import Dict, Union, List
 
 
 console = Console()
@@ -54,20 +54,23 @@ def __listar_funcionarios():
     status = response.status_code
 
     if status == 200:
-        conteudo = response.json()
+        conteudo:List[Dict[str, Union[str | int | float]]] = response.json()
 
-        for funcionario in conteudo:
-            id = funcionario["id"]
+        tamanho_conteudo = len(conteudo)
 
-            nome = funcionario["nome"]
+        for i in range(0, tamanho_conteudo):
+            funcionario = conteudo[i]
+            id = funcionario.get("id")
 
-            cargo = funcionario["cargo"]
+            nome = funcionario.get("nome")
 
-            departamento = funcionario["departamento"]
+            cargo = funcionario.get("cargo")
 
-            salario = funcionario["salario"]
+            departamento = funcionario.get("departamento")
 
-            telefone = funcionario["telefone"]
+            salario = funcionario.get("salario")
+
+            telefone = funcionario.get("telefone")
 
             tabela.add_row(str(id), nome, cargo, str(salario), departamento, telefone)
     else:
@@ -235,16 +238,20 @@ def __listar_projetos():
     status = response.status_code
 
     if status == 200:
-        conteudo = response.json()
+        conteudo:List[Dict[str, Union[int | str | float]]] = response.json()
 
-        for projeto in conteudo:
-            id = projeto["id"]
+        tamanho_conteudo = len(conteudo)
 
-            nome = projeto["nome"]
+        for i in range(0, tamanho_conteudo):
+            projeto = conteudo[i]
 
-            codigo = projeto["codigoProjeto"]
+            id = projeto.get("id")
 
-            custo = projeto["custoEstimado"]
+            nome = projeto.get("nome")
+
+            codigo = projeto.get("codigoProjeto")
+
+            custo = projeto.get("custoEstimado")
 
             tabela.add_row(str(id), nome, codigo, str(custo))
         else:
