@@ -1,0 +1,72 @@
+[
+    {
+        "nome": "Ana",
+        "email": "ana.silva@example.com",
+        "tipo": "premium",
+        "pontos": 1200,
+        "plano": "Premium"
+    },
+    {
+        "nome": "Carla",
+        "email": "carla.pereira@example.com",
+        "tipo": "premium",
+        "pontos": 560,
+        "plano": "Premium"
+    },
+    {
+        "nome": "Diego",
+        "email": "diego.alves@example.com",
+        "tipo": "empresarial",
+        "pontos": 4320,
+        "plano": "Business"
+    },
+    {
+        "nome": "Elisa",
+        "email": "elisa.rocha@example.com",
+        "tipo": "básico",
+        "pontos": 210,
+        "plano": "Free"
+    },
+    {
+        "nome": "Gabriela",
+        "email": "gabriela.souza@example.com",
+        "tipo": "premium",
+        "pontos": 2130,
+        "plano": "Premium"
+    },
+    {
+        "nome": "Henrique",
+        "email": "henrique.dias@example.com",
+        "tipo": "empresarial",
+        "pontos": 9980,
+        "plano": "Business"
+    },
+    {
+        "nome": "Isabella",
+        "email": "isabella.costa@example.com",
+        "tipo": "básico",
+        "pontos": 145,
+        "plano": "Free"
+    },
+    {
+        "nome": "João",
+        "email": "joao.santana@example.com",
+        "tipo": "premium",
+        "pontos": 870,
+        "plano": "Premium"
+    },
+    {
+        "nome": "Karen",
+        "email": "karen.oliveira@example.com",
+        "tipo": "básico",
+        "pontos": 310,
+        "plano": "Free"
+    },
+    {
+        "nome": "Lucas",
+        "email": "lucas.freitas@example.com",
+        "tipo": "empresarial",
+        "pontos": 15050,
+        "plano": "Business"
+    }
+]

@@ -1,0 +1,740 @@
+[
+    {
+        "id": 1,
+        "dados_pessoais": {
+            "nome": "Ana",
+            "idade": 28,
+            "cidade": "São Paulo",
+            "email": "ana.silva@example.com",
+            "telefone": "+55 11 91234-5678",
+            "genero": "F",
+            "cpf": "123.456.789-00"
+        },
+        "endereco": {
+            "rua": "Av. Paulista",
+            "numero": 1000,
+            "bairro": "Bela Vista",
+            "cep": "01310-100",
+            "uf": "SP"
+        },
+        "conta": {
+            "tipo": "premium",
+            "status": "ativo",
+            "data_cadastro": "2024-09-12",
+            "ultimo_login": "2025-11-10T09:15:22-03:00",
+            "roles": [
+                "user"
+            ],
+            "pontos": 1200
+        },
+        "preferencias": {
+            "idioma": "pt-BR",
+            "tema": "escuro",
+            "notificacoes": {
+                "email": true,
+                "sms": false,
+                "push": true
+            }
+        },
+        "assinatura": {
+            "plano": "Premium",
+            "periodicidade": "anual",
+            "renovacao_automatica": true,
+            "data_expiracao": "2026-09-12"
+        },
+        "historico_pagamentos": [
+            {
+                "data": "2025-09-12",
+                "valor": 299.90,
+                "metodo": "cartao",
+                "status": "pago"
+            }
+        ],
+        "dispositivos": [
+            {
+                "tipo": "iOS",
+                "modelo": "iPhone 14",
+                "ultimo_acesso": "2025-11-10T09:14:55-03:00"
+            }
+        ],
+        "tags": [
+            "beta",
+            "engajado"
+        ]
+    },
+    {
+        "id": 2,
+        "dados_pessoais": {
+            "nome": "Bruno",
+            "idade": 34,
+            "cidade": "Rio de Janeiro",
+            "email": "bruno.mendes@example.com",
+            "telefone": "+55 21 99876-5432",
+            "genero": "M",
+            "cpf": "234.567.890-11"
+        },
+        "endereco": {
+            "rua": "Rua das Laranjeiras",
+            "numero": 45,
+            "bairro": "Laranjeiras",
+            "cep": "22240-003",
+            "uf": "RJ"
+        },
+        "conta": {
+            "tipo": "básico",
+            "status": "inativo",
+            "data_cadastro": "2023-03-05",
+            "ultimo_login": "2025-02-18T16:02:10-03:00",
+            "roles": [
+                "user"
+            ],
+            "pontos": 80
+        },
+        "preferencias": {
+            "idioma": "pt-BR",
+            "tema": "claro",
+            "notificacoes": {
+                "email": false,
+                "sms": false,
+                "push": false
+            }
+        },
+        "assinatura": {
+            "plano": "Free",
+            "periodicidade": null,
+            "renovacao_automatica": false,
+            "data_expiracao": null
+        },
+        "historico_pagamentos": [],
+        "dispositivos": [],
+        "tags": [
+            "churn-risk"
+        ]
+    },
+    {
+        "id": 3,
+        "dados_pessoais": {
+            "nome": "Carla",
+            "idade": 22,
+            "cidade": "Curitiba",
+            "email": "carla.pereira@example.com",
+            "telefone": "+55 41 97777-1010",
+            "genero": "F",
+            "cpf": "345.678.901-22"
+        },
+        "endereco": {
+            "rua": "Rua XV de Novembro",
+            "numero": 321,
+            "bairro": "Centro",
+            "cep": "80020-310",
+            "uf": "PR"
+        },
+        "conta": {
+            "tipo": "premium",
+            "status": "ativo",
+            "data_cadastro": "2025-01-20",
+            "ultimo_login": "2025-11-09T21:48:00-03:00",
+            "roles": [
+                "user",
+                "tester"
+            ],
+            "pontos": 560
+        },
+        "preferencias": {
+            "idioma": "pt-BR",
+            "tema": "escuro",
+            "notificacoes": {
+                "email": true,
+                "sms": true,
+                "push": true
+            }
+        },
+        "assinatura": {
+            "plano": "Premium",
+            "periodicidade": "mensal",
+            "renovacao_automatica": true,
+            "data_expiracao": "2025-12-20"
+        },
+        "historico_pagamentos": [
+            {
+                "data": "2025-10-20",
+                "valor": 29.90,
+                "metodo": "pix",
+                "status": "pago"
+            },
+            {
+                "data": "2025-09-20",
+                "valor": 29.90,
+                "metodo": "pix",
+                "status": "pago"
+            }
+        ],
+        "dispositivos": [
+            {
+                "tipo": "Android",
+                "modelo": "Pixel 7",
+                "ultimo_acesso": "2025-11-09T21:47:10-03:00"
+            },
+            {
+                "tipo": "Web",
+                "modelo": "Chrome 130",
+                "ultimo_acesso": "2025-11-08T10:02:32-03:00"
+            }
+        ],
+        "tags": [
+            "early-adopter"
+        ]
+    },
+    {
+        "id": 4,
+        "dados_pessoais": {
+            "nome": "Diego",
+            "idade": 30,
+            "cidade": "Belo Horizonte",
+            "email": "diego.alves@example.com",
+            "telefone": "+55 31 93456-1212",
+            "genero": "M",
+            "cpf": "456.789.012-33"
+        },
+        "endereco": {
+            "rua": "Av. do Contorno",
+            "numero": 2222,
+            "bairro": "Funcionários",
+            "cep": "30110-012",
+            "uf": "MG"
+        },
+        "conta": {
+            "tipo": "empresarial",
+            "status": "ativo",
+            "data_cadastro": "2022-11-01",
+            "ultimo_login": "2025-11-10T08:12:44-03:00",
+            "roles": [
+                "admin"
+            ],
+            "pontos": 4320
+        },
+        "preferencias": {
+            "idioma": "pt-BR",
+            "tema": "claro",
+            "notificacoes": {
+                "email": true,
+                "sms": false,
+                "push": true
+            }
+        },
+        "assinatura": {
+            "plano": "Business",
+            "periodicidade": "anual",
+            "renovacao_automatica": true,
+            "data_expiracao": "2026-11-01"
+        },
+        "historico_pagamentos": [
+            {
+                "data": "2024-11-01",
+                "valor": 1999.00,
+                "metodo": "boleto",
+                "status": "pago"
+            },
+            {
+                "data": "2023-11-01",
+                "valor": 1799.00,
+                "metodo": "boleto",
+                "status": "pago"
+            }
+        ],
+        "dispositivos": [
+            {
+                "tipo": "Web",
+                "modelo": "Firefox 131",
+                "ultimo_acesso": "2025-11-10T08:12:44-03:00"
+            }
+        ],
+        "tags": [
+            "enterprise",
+            "key-account"
+        ]
+    },
+    {
+        "id": 5,
+        "dados_pessoais": {
+            "nome": "Elisa",
+            "idade": 26,
+            "cidade": "Florianópolis",
+            "email": "elisa.rocha@example.com",
+            "telefone": "+55 48 98888-0001",
+            "genero": "F",
+            "cpf": "567.890.123-44"
+        },
+        "endereco": {
+            "rua": "Rod. João Paulo",
+            "numero": 870,
+            "bairro": "João Paulo",
+            "cep": "88030-300",
+            "uf": "SC"
+        },
+        "conta": {
+            "tipo": "básico",
+            "status": "ativo",
+            "data_cadastro": "2025-05-03",
+            "ultimo_login": "2025-11-01T13:05:11-03:00",
+            "roles": [
+                "user"
+            ],
+            "pontos": 210
+        },
+        "preferencias": {
+            "idioma": "pt-BR",
+            "tema": "automático",
+            "notificacoes": {
+                "email": true,
+                "sms": false,
+                "push": false
+            }
+        },
+        "assinatura": {
+            "plano": "Free",
+            "periodicidade": null,
+            "renovacao_automatica": false,
+            "data_expiracao": null
+        },
+        "historico_pagamentos": [],
+        "dispositivos": [
+            {
+                "tipo": "Android",
+                "modelo": "Galaxy S22",
+                "ultimo_acesso": "2025-11-01T13:05:11-03:00"
+            }
+        ],
+        "tags": []
+    },
+    {
+        "id": 6,
+        "dados_pessoais": {
+            "nome": "Felipe",
+            "idade": 41,
+            "cidade": "Porto Alegre",
+            "email": "felipe.gomes@example.com",
+            "telefone": "+55 51 97654-3210",
+            "genero": "M",
+            "cpf": "678.901.234-55"
+        },
+        "endereco": {
+            "rua": "Av. Ipiranga",
+            "numero": 1500,
+            "bairro": "Azenha",
+            "cep": "90160-093",
+            "uf": "RS"
+        },
+        "conta": {
+            "tipo": "premium",
+            "status": "suspenso",
+            "data_cadastro": "2021-07-18",
+            "ultimo_login": "2025-07-22T18:20:00-03:00",
+            "roles": [
+                "user"
+            ],
+            "pontos": 0
+        },
+        "preferencias": {
+            "idioma": "pt-BR",
+            "tema": "claro",
+            "notificacoes": {
+                "email": false,
+                "sms": false,
+                "push": false
+            }
+        },
+        "assinatura": {
+            "plano": "Premium",
+            "periodicidade": "mensal",
+            "renovacao_automatica": false,
+            "data_expiracao": "2025-08-18"
+        },
+        "historico_pagamentos": [
+            {
+                "data": "2025-06-18",
+                "valor": 29.90,
+                "metodo": "cartao",
+                "status": "estornado"
+            }
+        ],
+        "dispositivos": [],
+        "tags": [
+            "fraude-suspeita"
+        ]
+    },
+    {
+        "id": 7,
+        "dados_pessoais": {
+            "nome": "Gabriela",
+            "idade": 29,
+            "cidade": "Recife",
+            "email": "gabriela.souza@example.com",
+            "telefone": "+55 81 93456-7890",
+            "genero": "F",
+            "cpf": "789.012.345-66"
+        },
+        "endereco": {
+            "rua": "Rua da Aurora",
+            "numero": 250,
+            "bairro": "Boa Vista",
+            "cep": "50050-000",
+            "uf": "PE"
+        },
+        "conta": {
+            "tipo": "premium",
+            "status": "ativo",
+            "data_cadastro": "2024-12-24",
+            "ultimo_login": "2025-11-10T10:02:00-03:00",
+            "roles": [
+                "user",
+                "moderator"
+            ],
+            "pontos": 2130
+        },
+        "preferencias": {
+            "idioma": "pt-BR",
+            "tema": "escuro",
+            "notificacoes": {
+                "email": true,
+                "sms": true,
+                "push": true
+            }
+        },
+        "assinatura": {
+            "plano": "Premium",
+            "periodicidade": "anual",
+            "renovacao_automatica": true,
+            "data_expiracao": "2025-12-24"
+        },
+        "historico_pagamentos": [
+            {
+                "data": "2024-12-24",
+                "valor": 299.90,
+                "metodo": "cartao",
+                "status": "pago"
+            }
+        ],
+        "dispositivos": [
+            {
+                "tipo": "iOS",
+                "modelo": "iPhone 13",
+                "ultimo_acesso": "2025-11-10T10:01:51-03:00"
+            }
+        ],
+        "tags": [
+            "comunidade"
+        ]
+    },
+    {
+        "id": 8,
+        "dados_pessoais": {
+            "nome": "Henrique",
+            "idade": 36,
+            "cidade": "Campinas",
+            "email": "henrique.dias@example.com",
+            "telefone": "+55 19 90001-2233",
+            "genero": "M",
+            "cpf": "890.123.456-77"
+        },
+        "endereco": {
+            "rua": "Av. Barão de Itapura",
+            "numero": 200,
+            "bairro": "Cambuí",
+            "cep": "13024-300",
+            "uf": "SP"
+        },
+        "conta": {
+            "tipo": "empresarial",
+            "status": "ativo",
+            "data_cadastro": "2020-04-09",
+            "ultimo_login": "2025-11-05T12:10:45-03:00",
+            "roles": [
+                "admin",
+                "finance"
+            ],
+            "pontos": 9980
+        },
+        "preferencias": {
+            "idioma": "en-US",
+            "tema": "claro",
+            "notificacoes": {
+                "email": true,
+                "sms": false,
+                "push": true
+            }
+        },
+        "assinatura": {
+            "plano": "Business",
+            "periodicidade": "anual",
+            "renovacao_automatica": true,
+            "data_expiracao": "2026-04-09"
+        },
+        "historico_pagamentos": [
+            {
+                "data": "2025-04-09",
+                "valor": 2499.00,
+                "metodo": "cartao",
+                "status": "pago"
+            }
+        ],
+        "dispositivos": [
+            {
+                "tipo": "Web",
+                "modelo": "Edge 129",
+                "ultimo_acesso": "2025-11-05T12:10:45-03:00"
+            }
+        ],
+        "tags": [
+            "b2b",
+            "vip"
+        ]
+    },
+    {
+        "id": 9,
+        "dados_pessoais": {
+            "nome": "Isabella",
+            "idade": 24,
+            "cidade": "Fortaleza",
+            "email": "isabella.costa@example.com",
+            "telefone": "+55 85 98812-3456",
+            "genero": "F",
+            "cpf": "901.234.567-88"
+        },
+        "endereco": {
+            "rua": "Av. Beira Mar",
+            "numero": 3000,
+            "bairro": "Meireles",
+            "cep": "60165-120",
+            "uf": "CE"
+        },
+        "conta": {
+            "tipo": "básico",
+            "status": "ativo",
+            "data_cadastro": "2025-08-02",
+            "ultimo_login": "2025-11-03T18:33:19-03:00",
+            "roles": [
+                "user"
+            ],
+            "pontos": 145
+        },
+        "preferencias": {
+            "idioma": "pt-BR",
+            "tema": "claro",
+            "notificacoes": {
+                "email": true,
+                "sms": false,
+                "push": false
+            }
+        },
+        "assinatura": {
+            "plano": "Free",
+            "periodicidade": null,
+            "renovacao_automatica": false,
+            "data_expiracao": null
+        },
+        "historico_pagamentos": [],
+        "dispositivos": [
+            {
+                "tipo": "Android",
+                "modelo": "Moto G84",
+                "ultimo_acesso": "2025-11-03T18:33:19-03:00"
+            }
+        ],
+        "tags": [
+            "trial"
+        ]
+    },
+    {
+        "id": 10,
+        "dados_pessoais": {
+            "nome": "João",
+            "idade": 32,
+            "cidade": "Salvador",
+            "email": "joao.santana@example.com",
+            "telefone": "+55 71 97600-1111",
+            "genero": "M",
+            "cpf": "012.345.678-99"
+        },
+        "endereco": {
+            "rua": "Av. Oceânica",
+            "numero": 120,
+            "bairro": "Barra",
+            "cep": "40140-130",
+            "uf": "BA"
+        },
+        "conta": {
+            "tipo": "premium",
+            "status": "ativo",
+            "data_cadastro": "2023-12-31",
+            "ultimo_login": "2025-11-10T07:59:00-03:00",
+            "roles": [
+                "user"
+            ],
+            "pontos": 870
+        },
+        "preferencias": {
+            "idioma": "pt-BR",
+            "tema": "escuro",
+            "notificacoes": {
+                "email": true,
+                "sms": true,
+                "push": false
+            }
+        },
+        "assinatura": {
+            "plano": "Premium",
+            "periodicidade": "mensal",
+            "renovacao_automatica": true,
+            "data_expiracao": "2025-12-31"
+        },
+        "historico_pagamentos": [
+            {
+                "data": "2025-10-31",
+                "valor": 29.90,
+                "metodo": "cartao",
+                "status": "pago"
+            }
+        ],
+        "dispositivos": [
+            {
+                "tipo": "Web",
+                "modelo": "Chrome 130",
+                "ultimo_acesso": "2025-11-10T07:59:00-03:00"
+            }
+        ],
+        "tags": [
+            "campanha-blackfriday"
+        ]
+    },
+    {
+        "id": 11,
+        "dados_pessoais": {
+            "nome": "Karen",
+            "idade": 27,
+            "cidade": "Manaus",
+            "email": "karen.oliveira@example.com",
+            "telefone": "+55 92 98123-4567",
+            "genero": "F",
+            "cpf": "147.258.369-10"
+        },
+        "endereco": {
+            "rua": "Av. Djalma Batista",
+            "numero": 900,
+            "bairro": "Chapada",
+            "cep": "69050-220",
+            "uf": "AM"
+        },
+        "conta": {
+            "tipo": "básico",
+            "status": "ativo",
+            "data_cadastro": "2025-06-15",
+            "ultimo_login": "2025-11-06T20:11:07-03:00",
+            "roles": [
+                "user"
+            ],
+            "pontos": 310
+        },
+        "preferencias": {
+            "idioma": "pt-BR",
+            "tema": "automático",
+            "notificacoes": {
+                "email": true,
+                "sms": true,
+                "push": true
+            }
+        },
+        "assinatura": {
+            "plano": "Free",
+            "periodicidade": null,
+            "renovacao_automatica": false,
+            "data_expiracao": null
+        },
+        "historico_pagamentos": [],
+        "dispositivos": [
+            {
+                "tipo": "iOS",
+                "modelo": "iPhone 12",
+                "ultimo_acesso": "2025-11-06T20:11:07-03:00"
+            }
+        ],
+        "tags": [
+            "gamificacao"
+        ]
+    },
+    {
+        "id": 12,
+        "dados_pessoais": {
+            "nome": "Lucas",
+            "idade": 33,
+            "cidade": "Brasília",
+            "email": "lucas.freitas@example.com",
+            "telefone": "+55 61 99000-7777",
+            "genero": "M",
+            "cpf": "258.369.147-20"
+        },
+        "endereco": {
+            "rua": "SQS 308 Bloco A",
+            "numero": 12,
+            "bairro": "Asa Sul",
+            "cep": "70353-010",
+            "uf": "DF"
+        },
+        "conta": {
+            "tipo": "empresarial",
+            "status": "ativo",
+            "data_cadastro": "2019-02-01",
+            "ultimo_login": "2025-11-10T10:30:30-03:00",
+            "roles": [
+                "admin",
+                "owner"
+            ],
+            "pontos": 15050
+        },
+        "preferencias": {
+            "idioma": "pt-BR",
+            "tema": "claro",
+            "notificacoes": {
+                "email": true,
+                "sms": false,
+                "push": true
+            }
+        },
+        "assinatura": {
+            "plano": "Business",
+            "periodicidade": "anual",
+            "renovacao_automatica": true,
+            "data_expiracao": "2026-02-01"
+        },
+        "historico_pagamentos": [
+            {
+                "data": "2025-02-01",
+                "valor": 3499.00,
+                "metodo": "transferencia",
+                "status": "pago"
+            },
+            {
+                "data": "2024-02-01",
+                "valor": 3299.00,
+                "metodo": "transferencia",
+                "status": "pago"
+            }
+        ],
+        "dispositivos": [
+            {
+                "tipo": "Web",
+                "modelo": "Safari 18",
+                "ultimo_acesso": "2025-11-10T10:30:30-03:00"
+            },
+            {
+                "tipo": "Android",
+                "modelo": "Galaxy S24",
+                "ultimo_acesso": "2025-11-08T08:22:09-03:00"
+            }
+        ],
+        "tags": [
+            "owner",
+            "relacionamento"
+        ]
+    }
+]

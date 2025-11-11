@@ -9,7 +9,7 @@ from src.dicionarios import exemplo_dicionario_basico
 from src.dicionarios import exemplo_dicionario_aluno
 from src.listas import exemplo_lista_basica, exemplo_solicitar_dados_usuario, exemplo_solicitar_dados_usuario_otimizado
 from src.exercicio_crud import mostrar_menu
-
+from src.exercicio_pratico_json import resolucao
 
 def main():
     # # Exemplos de variáveis
@@ -49,7 +49,15 @@ def main():
 
     # exemplo_solicitar_dados_usuario_otimizado()
 
-    mostrar_menu()
+    # mostrar_menu()
+
+    # resolucao.exercicio_01()
+
+    # resolucao.exercicio_02()
+
+    resolucao.exercicio_03()
+
+    # resolucao.exercicio_04()
 
 if __name__ == "__main__":
     main() # executar uma função chamada de main(principal)

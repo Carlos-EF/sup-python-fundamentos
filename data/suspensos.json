@@ -1,0 +1,9 @@
+[
+    {
+        "nome": "Felipe",
+        "email": "felipe.gomes@example.com",
+        "tipo": "premium",
+        "pontos": 0,
+        "plano": "Premium"
+    }
+]
