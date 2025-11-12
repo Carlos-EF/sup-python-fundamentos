@@ -135,8 +135,6 @@ def exercicio_02():
     escrever_json(tags, "data/tags.json")
 
 
-
-
 # Exercício 03
 #   Percorrer a lista de usuário, armazenando no arquivo 'enderecos.json' todos os endereços dos usuários
 # Ex.: ["Rua - Numero - Bairro - CEP - UF", "Rua - Numero - Bairro - CEP - UF"]
