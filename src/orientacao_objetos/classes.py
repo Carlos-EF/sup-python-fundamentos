@@ -17,7 +17,7 @@ class Desenvolvedora:
     def __init__(self):
         self.nome: str = None
         self.sede: Endereco = None
-        self.prorieatario: str = None
+        self.proprietario: str = None
         self.jogos: List[Jogo] = []
 
 
@@ -65,7 +65,7 @@ def exemplo_01():
 
     rockstar_games = Desenvolvedora()
     rockstar_games.nome = "Rockstar Games"
-    rockstar_games.prorieatario = "Take-Two Interactive"
+    rockstar_games.proprietario = "Take-Two Interactive"
     rockstar_games.sede = endereco_rockstar
 
     #  Instanciando um objeto chamado gta_vi da classe Jogo
@@ -219,7 +219,7 @@ def exercicio_ticket():
 
 
 console = Console()
-desenvolvedoras = List[Desenvolvedora] = []
+desenvolvedoras : List[Desenvolvedora] = []
 
 def exemplo_crud_lista_objetos():
     menu = ""
@@ -238,7 +238,7 @@ def adicionar_desenvolvedora():
 
     desenvolvedora = Desenvolvedora()
     desenvolvedora.nome = questionary.text("Digite o nome da desenvolvedora").ask()
-    desenvolvedora.prorieatario = questionary.text("Digite o nome do proprietário").ask()
+    desenvolvedora.proprietario = questionary.text("Digite o nome do proprietário").ask()
 
     desenvolvedora.sede = Endereco()
     desenvolvedora.sede.cidade = questionary.text("Digite a cidade da sede").ask()
@@ -269,3 +269,6 @@ def listar_desenvolvedoras():
         )
 
     console.print(table)
+
+
+exemplo_crud_lista_objetos()
