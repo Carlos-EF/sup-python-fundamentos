@@ -285,15 +285,28 @@ def listar_desenvolvedoras():
 #   - Nome
 #   - CPF
 # Criar uma classe chamada Animal com os seguintes atributos abaixo:
-#   - Raça
-#   - Dono
-#   - Data de Nascimento
+# - Raça
+# - Dono
+# - Data de Nascimento
 # Fazer o CR(Create/Read) do Animal solicitando os dados de seu dono também
+
+# Ex. 2: Modificar o conteúdo da classe Dono acrescentando os atributos abaixo:
+# -  Bairro, Rua, Número
+# Alterar o CR(Create/Read) para solicitar os novos dados do dono
+# Modificar o conteúdo da classe Animal acrescentando os atributos abaixo:
+#   Peso
+#   Altura
+#   Sexo
+#   Cor
+#   Origem da Raça
 
 class Dono:
     def __init__(self):
         self.nome: str = None
         self.cpf: str = None
+        self.bairro: str = None
+        self.logradouro: str = None
+        self.numero: int = None
 
 
 class Animal:
@@ -301,6 +314,11 @@ class Animal:
         self.raca: str = None
         self.dono: Dono = None
         self.data_de_nascimento: date = None
+        self.peso: float = None
+        self.altura: float = None
+        self.sexo: str = None
+        self.cor: str = None
+        self.origem_raca : str = None
 
 animais: List[Animal] = []
 
@@ -322,18 +340,32 @@ def listar_animais():
         limpar_tela()
         return
     
-    tabela = Table("Raça do Animal", "Data de Nascimento", "Dono", "CPF do Dono")
+    tabela_animal = Table("Raça do Animal", "Origem da Raça", "Data de Nascimento", "Peso", "Altura", "Sexo", "Cor", "Dono", title="Animais")
+    tabela_dono = Table("Nome", "CPF", "Bairro", "Logradouro", "Número", title="Donos")
 
     for i in range(0, len(animais)):
         animal = animais[i]
-        tabela.add_row(
+        tabela_animal.add_row(
             animal.raca,
+            animal.origem_raca,
             animal.data_de_nascimento,
+            str(animal.peso),
+            str(animal.altura),
+            animal.sexo,
+            animal.cor,
+            animal.dono.nome,
+        )
+
+        tabela_dono.add_row(
             animal.dono.nome,
             animal.dono.cpf,
+            animal.dono.bairro,
+            animal.dono.logradouro,
+            str(animal.dono.numero),
         )
     
-    console.print(tabela)
+    console.print(tabela_animal)
+    console.print(tabela_dono)
 
 
 def adicionar_animal():
@@ -342,13 +374,23 @@ def adicionar_animal():
     animal = Animal()
     animal.raca = questionary.text("Digite a raça do animal").ask()
     animal.data_de_nascimento = questionary.text("Digite a data de nascimento do animal").ask()
+    animal.peso = float(questionary.text("Digite o peso do animal").ask().replace(",", "."))
+    animal.altura = float(questionary.text("Digite a altura do animal").ask().replace(",", "."))
+    animal.sexo = questionary.select("Selecione o sexo do animal", choices=["Masculino", "Feminino"]).ask()
+    animal.cor = questionary.text("Digite a cor do animal").ask()
+    animal.origem_raca = questionary.text("Digite a origem da raça").ask()
 
     animal.dono = Dono()
     animal.dono.nome = questionary.text("Digite o nome do dono").ask()
     animal.dono.cpf = questionary.text("Digite o CPF do dono").ask()
+    animal.dono.bairro = questionary.text("Digite o bairro em que o dono vive").ask()
+    animal.dono.logradouro = questionary.text("Digite a rua").ask()
+    animal.dono.numero = int(questionary.text("Digite o número do local de convivência").ask())
 
     animais.append(animal)
     console.print("Animal e seu dono cadastrado com sucesso!", style="green")
     input("Pressione ENTER para continuar")
     limpar_tela()
 
+
+exercicio_crud_animal()
