@@ -221,6 +221,15 @@ def exercicio_ticket():
 console = Console()
 desenvolvedoras : List[Desenvolvedora] = []
 
+def menu_sistema():
+    menu_geral = ""
+    while menu_geral != "sair":
+        menu_geral = questionary.select("Escolha o sistema", choices=["Desenvolvedora", "Sair"]).ask().lower()
+        limpar_tela()
+        if menu_geral == "desenvolvedora":
+            exemplo_crud_lista_objetos()
+
+
 def exemplo_crud_lista_objetos():
     menu = ""
     while menu != "sair":
@@ -271,4 +280,75 @@ def listar_desenvolvedoras():
     console.print(table)
 
 
-exemplo_crud_lista_objetos()
+# Ex. 1: Criar uma crud de Animal e seu Dono
+# Criar uma classe chamada Dono com os seguintes atributos abaixo:
+#   - Nome
+#   - CPF
+# Criar uma classe chamada Animal com os seguintes atributos abaixo:
+#   - Raça
+#   - Dono
+#   - Data de Nascimento
+# Fazer o CR(Create/Read) do Animal solicitando os dados de seu dono também
+
+class Dono:
+    def __init__(self):
+        self.nome: str = None
+        self.cpf: str = None
+
+
+class Animal:
+    def __init__(self):       
+        self.raca: str = None
+        self.dono: Dono = None
+        self.data_de_nascimento: date = None
+
+animais: List[Animal] = []
+
+def exercicio_crud_animal():
+    menu = ""
+    while menu != "sair":
+        menu = questionary.select("Escolhe o menu", choices=["Listar", "Adicionar", "Sair"]).ask().lower()
+        limpar_tela()
+        if menu == "adicionar":
+            adicionar_animal()
+        if menu == "listar":
+            listar_animais()
+
+
+def listar_animais():
+    if len(animais) == 0:
+        console.print("Desculpe! Não possui nenhum animal cadastrado.", style="red")
+        input("Pressione ENTER para continuar")
+        limpar_tela()
+        return
+    
+    tabela = Table("Raça do Animal", "Data de Nascimento", "Dono", "CPF do Dono")
+
+    for i in range(0, len(animais)):
+        animal = animais[i]
+        tabela.add_row(
+            animal.raca,
+            animal.data_de_nascimento,
+            animal.dono.nome,
+            animal.dono.cpf,
+        )
+    
+    console.print(tabela)
+
+
+def adicionar_animal():
+    console.print(Align("Cadastro de Animal"), style="blue")
+
+    animal = Animal()
+    animal.raca = questionary.text("Digite a raça do animal").ask()
+    animal.data_de_nascimento = questionary.text("Digite a data de nascimento do animal").ask()
+
+    animal.dono = Dono()
+    animal.dono.nome = questionary.text("Digite o nome do dono").ask()
+    animal.dono.cpf = questionary.text("Digite o CPF do dono").ask()
+
+    animais.append(animal)
+    console.print("Animal e seu dono cadastrado com sucesso!", style="green")
+    input("Pressione ENTER para continuar")
+    limpar_tela()
+
