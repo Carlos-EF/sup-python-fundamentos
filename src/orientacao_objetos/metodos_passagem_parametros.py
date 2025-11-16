@@ -1,4 +1,6 @@
 from typing import List
+from rich.table import Table
+from rich.console import Console
 
 class Aluno:
     def __init__(
@@ -54,6 +56,8 @@ def exemplo_passagem_parametros_nomeado():
 # e outros n
 # Instanciar objetos e apresentar
 
+console = Console()
+
 class Player:
      def __init__(
                self,
@@ -64,4 +68,104 @@ class Player:
                maestria:str = "7",
                main:str = "Jinx",
                ):
-          pass
+          self.nick = nick
+          self.classe = classe
+          self.lane = lane
+          self.elo = elo
+          self.maestria = maestria
+          self.main = main
+
+
+def criar_players():
+     players: List[Player] = []
+
+     player_01 = Player(
+          nick="Pedrinhogameplays",
+          lane="Selva",
+          main="Shaco"
+     )
+
+     player_02 = Player(
+          elo="Diamante",
+          maestria="4"
+     )
+
+     player_03 = Player(
+          classe="Mago"
+     )
+
+     player_04 = Player(
+          nick="João de Barro",
+          classe="Assassino",
+          lane="Suporte",
+          elo="Mestre",
+          main="Pyke"
+     )
+
+     player_05 = Player(
+          maestria="5",
+          main="Sivir",
+          lane="Atirador",
+          elo="Ferro"
+     )
+
+     player_06 = Player(
+          nick="Faker do Sul",
+          classe="Mago",
+          lane="Topo",
+          elo="Desafiante",
+          maestria="9",
+          main="Syndra"
+     )
+
+     player_07 = Player(
+          main="Graves",
+          lane="Selva"
+     )
+
+     players.append(
+          player_01
+     )
+     players.append(
+          player_02
+     )
+     players.append(
+          player_03
+     )
+     players.append(
+          player_04
+     )
+     players.append(
+          player_05
+     )
+     players.append(
+          player_06
+     )
+     players.append(
+          player_07
+     )
+
+     tabela = Table(
+          "Nickname",
+          "Classe",
+          "Lane",
+          "Elo",
+          "Maestria",
+          "Main",
+     )
+
+     for i in range(0, len(players)):
+          player = players[i]
+
+          tabela.add_row(
+               player.nick,
+               player.classe,
+               player.lane,
+               player.elo,
+               player.maestria,
+               player.main,
+          )
+     
+     console.print(tabela)
+
+
