@@ -169,3 +169,48 @@ def criar_players():
      console.print(tabela)
 
 
+class Pokemon:
+     def __init__(
+               self,
+               nome: str,
+               tipo_primario: str,
+               tipo_secundario: str = "Nenhum",
+               geracao: str = "Primeira"
+          ):
+          self.nome = nome
+          self.tipo_primario = tipo_primario
+          self.tipo_secundario = tipo_secundario
+          self.geracao = geracao
+
+
+def criar_pokemons():
+     pokemons : List[Pokemon] = []
+
+     pikachu = Pokemon(
+          nome="Pikachu",
+          tipo_primario="Elétrico",
+     )
+
+     absol = Pokemon(
+          nome="Absol",
+          tipo_primario="Sombrio",
+          geracao="Terceira"
+     )
+
+     pokemons.append(pikachu)
+     pokemons.append(absol)
+
+     tabela = Table("Nome", "Tipos", "Geração")
+
+     for i in range(0, len(pokemons)):
+          pokemon = pokemons[i]
+
+          tabela.add_row(
+               pokemon.nome,
+               f"{pokemon.tipo_primario}/{pokemon.tipo_secundario}",
+               pokemon.geracao
+          )
+
+     console.print(tabela)
+
+
