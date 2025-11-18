@@ -32,7 +32,6 @@ class Player:
         adversario2.vida = adversario2.vida - 15
 
 
-
 def limpar_tela():
     sistema = platform.system()
     if sistema == "Windows":
@@ -97,9 +96,6 @@ def exemplo_player():
             indice_player_atual = 0
 
 
-
-
-
 def apresentar_dados(*players: List[Player]):
     tabela = Table()
     tabela.add_column("Player")
@@ -117,5 +113,3 @@ def apresentar_dados(*players: List[Player]):
     Console.print(tabela)
     input("Aperte ENTER para o próximo round")
 
-
-exemplo_player()
