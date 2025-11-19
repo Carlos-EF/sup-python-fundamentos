@@ -204,7 +204,6 @@ def exemplo_carrinho():
     carrinho.calcular_total()
 
 
-
 class AlunoTurma:
     def __init__(self):
         self.nome : str
@@ -312,6 +311,7 @@ class Turma:
                 style="red"
                 )
 
+
 def exemplo_turma():
     turma = Turma("Python Fundamentos")
 
@@ -346,21 +346,121 @@ def exemplo_turma():
     turma.listar_alunos()
     turma.quantidade_alunos()
 
+class Contato:
+    def __init__(self):
+        self.nome : str
+        self.telefone : str
+        self.email : str
 
-# def exemplo_agenda():
-#     agenda = AgendaContatos()
+class AgendaContatos:
+    def __init__(self):
+        self.contatos : List[Contato] = []
 
-#     agenda.listar_contatos()
-#     agenda.adicionar_contato("Ana", "47 99999-0000", "ana@example.com")
-#     agenda.adicionar_contato("Bruno", "47 98888-1111", "bruno@example.com")
-#     agenda.adicionar_contato("Ana", "47 97777-2222", "outraana@example.com")
+    def listar_contatos(self):
+        if len(self.contatos) == 0:
+            console.print(
+                f"ERRO: Nenhum contato cadastrado na agenda.",
+                style="red"
+                )
+            return
+        
+        tabela = Table(
+            "Nome",
+            "Telefone",
+            "E-Mail",
+        )
 
-#     agenda.listar_contatos()
+        for contato in self.contatos:
+            tabela.add_row(
+                contato.nome,
+                contato.telefone,
+                contato.email,
+            )
+        
+        console.print(tabela)
 
-#     agenda.buscar_contato("Bruno")
-#     agenda.buscar_contato("Carlos")
+    def adicionar_contato(
+            self,
+            nome_contato : str,
+            telefone_contato : str,
+            email_contato : str,
+            ):
+        contato = Contato()
+        contato.nome = nome_contato
+        contato.telefone = telefone_contato
+        contato.email = email_contato
+        self.contatos.append(contato)
 
-#     agenda.remover_contato("Ana")
-#     agenda.remover_contato("Carlos")
+        console.print(
+            f"Contato {nome_contato} adicionado com sucesso!",
+            style="green"
+            )
+    
 
-#     agenda.listar_contatos()
+    def buscar_contato(self, nome_contato : str):
+        indice_contato_atual = 0
+
+        nome_contato_encontrado = False
+
+        tabela = Table(
+            "Nome",
+            "Telefone",
+            "E-Mail",
+            style="blue"
+        )
+
+        for contato in self.contatos:
+            if contato.nome == nome_contato:
+                tabela.add_row(
+                    contato.nome,
+                    contato.telefone,
+                    contato.email,
+                )
+                nome_contato_encontrado = True
+            indice_contato_atual = indice_contato_atual + 1
+
+        if nome_contato_encontrado == True:
+            console.print(tabela)
+        else:
+            console.print(
+                f"ERRO: {nome_contato} não encontrado!",
+                style="red")
+
+
+    def remover_contato(self, nome_contato : str):
+        indice_atual_remover = 0
+
+        contato_remover_status = False
+
+        for contato in self.contatos:
+            if nome_contato == contato.nome:
+                self.contatos.pop(indice_atual_remover)
+                contato_remover_status = True
+            indice_atual_remover = indice_atual_remover + 1
+        
+        if contato_remover_status == True:
+            console.print(
+                f"{nome_contato} removido com sucesso!",
+                style="green")
+        else:
+            console.print(
+                f"ERRO: {nome_contato} não encontrado na agenda!",
+                style="red")
+
+def exemplo_agenda():
+    agenda = AgendaContatos()
+
+    agenda.listar_contatos()
+    agenda.adicionar_contato("Ana", "47 99999-0000", "ana@example.com")
+    agenda.adicionar_contato("Bruno", "47 98888-1111", "bruno@example.com")
+    agenda.adicionar_contato("Ana", "47 97777-2222", "outraana@example.com")
+
+    agenda.listar_contatos()
+
+    agenda.buscar_contato("Bruno")
+    agenda.buscar_contato("Carlos")
+
+    agenda.remover_contato("Ana")
+    agenda.remover_contato("Carlos")
+
+    agenda.listar_contatos()
