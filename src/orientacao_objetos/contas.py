@@ -3,6 +3,8 @@ import questionary
 from rich.console import Console
 from rich.table import Table
 
+console = Console()
+
 class Conta:
     def __init__(self, titular: str, saldo_inicial: float):
         """Construtor da classe. Inicializa o títular e o saldo."""
@@ -97,7 +99,6 @@ def apresentar_dados_aluno():
 
     aluno.calcular_media()
 
-console = Console()
 
 class Produto:
     def __init__(self):
@@ -346,11 +347,13 @@ def exemplo_turma():
     turma.listar_alunos()
     turma.quantidade_alunos()
 
+
 class Contato:
     def __init__(self):
         self.nome : str
         self.telefone : str
         self.email : str
+
 
 class AgendaContatos:
     def __init__(self):
@@ -446,6 +449,7 @@ class AgendaContatos:
             console.print(
                 f"ERRO: {nome_contato} não encontrado na agenda!",
                 style="red")
+
 
 def exemplo_agenda():
     agenda = AgendaContatos()
