@@ -105,6 +105,7 @@ class Produto:
         self.preco: float
         self.quantidade: int
 
+
 class CarrinhoDeCompras:
     def __init__(self):
         self.produtos: List[Produto] = []
@@ -175,6 +176,7 @@ class CarrinhoDeCompras:
 
         print(f"Valor Total da Compra: R${valor_total:.2f}")
 
+
 def exemplo_carrinho():
     """Função para testar a funcionalidade do carrinho de compras."""
     carrinho = CarrinhoDeCompras()
@@ -188,12 +190,11 @@ def exemplo_carrinho():
     # Testando casos inválidos
     carrinho.adicionar_items("Chocolate", -10.0, 1)
     carrinho.adicionar_items("Chocolate", 5.0, 0)
-    carrinho.adicionar_items("a", 5.0, 1)
+    carrinho.adicionar_items("a", 3.0, 1)
 
     carrinho.exibir_itens()
 
     # Removendo um item
-
     carrinho.remover_item("Feijão")
     carrinho.remover_item("Café") # Não existe
 
@@ -203,4 +204,163 @@ def exemplo_carrinho():
     carrinho.calcular_total()
 
 
-exemplo_carrinho()
+
+class AlunoTurma:
+    def __init__(self):
+        self.nome : str
+        self.idade : int
+        self.email : str
+        self.nota : float
+
+        
+class Turma:
+    def __init__(self, nome_turma: str):
+        self.turma = nome_turma
+        self.alunos: List[AlunoTurma] = []
+
+    def listar_alunos(self):
+        if len(self.alunos) == 0:
+            print(f"Nenhum aluno cadastrado na turma {self.turma}.")
+            return
+
+        tabela = Table(
+            "Nome",
+            "Idade",
+            "E-Mail",
+            "Nota",
+        )
+
+        for aluno in self.alunos:
+            tabela.add_row(
+                aluno.nome,
+                str(aluno.idade),
+                aluno.email,
+                str(aluno.nota),
+                )
+        
+        console.print(tabela)
+
+    def adicionar_aluno(
+            self,
+            nome_aluno : str,
+            idade : int = 18,
+            email : str = "Não informado",
+            nota : float = 7.0
+        ):
+        if nome_aluno == "":
+            console.print("ERRO: Nome do aluno não informado!",style="red")
+            return
+        
+        if len(nome_aluno) < 3 or len(nome_aluno) > 50:
+            console.print(
+                f"ERRO: Nome inválido!",
+                style="red"
+                )
+            return
+        
+        indice_atual = 0
+        for aluno in self.alunos:
+            if nome_aluno == aluno.nome:
+                console.print(
+                    f"ERRO: Aluno já cadastrado!",
+                    style="red"
+                    )
+                return
+            indice_atual = indice_atual + 1
+
+        aluno = AlunoTurma()
+        aluno.nome = nome_aluno
+        aluno.idade = idade
+        aluno.email = email
+        aluno.nota = nota
+
+        self.alunos.append(aluno)
+        console.print(f"Aluno {nome_aluno} cadastrado com sucesso!")
+        
+    def quantidade_alunos(self):
+        quantidade_alunos = len(self.alunos)
+
+        if quantidade_alunos == 0:
+            console.print(
+                f"AVISO: Nenhum aluno cadastrado na turma {self.turma}.",
+                style="red"
+                )
+            return
+            
+        console.print(
+            f"Quantidade de alunos na turma {self.turma}: {quantidade_alunos}",
+            style="blue"
+            )
+    
+    def remover_aluno(self, nome_aluno: str):
+        indice_atual = 0
+        aluno_removido = False
+        for aluno in self.alunos:
+            if nome_aluno == aluno.nome:
+                aluno_removido = True
+                self.alunos.pop(indice_atual)
+            indice_atual = indice_atual + 1
+        
+        if aluno_removido == True:
+            console.print(
+                f"Aluno {nome_aluno} removido da turma {self.turma}!",
+                style="green"
+                )
+        else:
+            console.print(
+                f"Aluno {nome_aluno} não faz parte da turma {self.turma}.",
+                style="red"
+                )
+
+def exemplo_turma():
+    turma = Turma("Python Fundamentos")
+
+    turma.listar_alunos()
+
+    # Aluno com todos os dados
+    turma.adicionar_aluno(
+        "Vitor", 
+        idade=20, 
+        email="vitor@exemple.com", 
+        nota=9.5
+        )
+    
+    # Aluno só com nome e idade
+    turma.adicionar_aluno("Ana", idade=18)
+
+    # Aluno só com nome e e-mail
+    turma.adicionar_aluno("Marcos", email="marcos@example.com")
+
+    # Aluna só com nome (mínimo de informação)
+    turma.adicionar_aluno("Júlia")
+
+    # Tentativa de duplicado
+    turma.adicionar_aluno("Vitor") # Duplicado
+
+    turma.listar_alunos()
+    turma.quantidade_alunos()
+
+    turma.remover_aluno("Ana")
+    turma.remover_aluno("Carlos") # não existe
+
+    turma.listar_alunos()
+    turma.quantidade_alunos()
+
+
+# def exemplo_agenda():
+#     agenda = AgendaContatos()
+
+#     agenda.listar_contatos()
+#     agenda.adicionar_contato("Ana", "47 99999-0000", "ana@example.com")
+#     agenda.adicionar_contato("Bruno", "47 98888-1111", "bruno@example.com")
+#     agenda.adicionar_contato("Ana", "47 97777-2222", "outraana@example.com")
+
+#     agenda.listar_contatos()
+
+#     agenda.buscar_contato("Bruno")
+#     agenda.buscar_contato("Carlos")
+
+#     agenda.remover_contato("Ana")
+#     agenda.remover_contato("Carlos")
+
+#     agenda.listar_contatos()
